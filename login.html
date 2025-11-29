@@ -1,0 +1,71 @@
+<head>
+    <meta charset="UTF-8">
+    <title>MyNutritionTracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Top header -->
+    <header>
+        <button class="menu-btn" id="menu-btn">Menu</button>
+        <h1>MyNutritionTracker</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="registration.html">Registration</a>
+        <a href="login.html">Login</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+
+    <section class="login-form-container">
+        <h2>Login</h2>
+    
+        <form action="login.html" method="post">
+            <!-- Email -->
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" name="email" placeholder="you@example.com" required>
+    
+            <!-- Password -->
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="password" placeholder="*********" required>
+    
+            <!-- Login Button -->
+            <button type="submit" class="btn login-submit-btn">Login</button>
+    
+            <!-- Register link -->
+            <p class="register-link">
+                Don't have an account?
+                <a href="registration.html">Create one</a>
+            </p>
+        </form>
+    </section>
+
+
+    <!--Menu Button-->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>

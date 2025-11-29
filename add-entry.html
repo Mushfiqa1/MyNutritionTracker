@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Entry</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Header -->
+<header>
+    <button class="menu-btn" id="menu-btn">Menu</button>
+    <h1>Add Entry</h1>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="login.html">Login</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="add-entry.html">Add Entry</a>
+</nav>
+
+<!-- MAIN WRAPPER -->
+<div class="page-wrapper">
+
+    <div class="entry-box">
+
+        <div class="entry-header-row">
+            <a href="dashboard.html" class="back-arrow">←</a>
+            <h2>Add Entry</h2>
+        </div>
+
+        <p class="subtext">Log a new meal item to your daily tracker.</p>
+
+        <label>Food Name</label>
+        <input id="food" placeholder="e.g. Apple">
+
+        <label>Calories</label>
+        <input id="calories" placeholder="e.g. 95">
+
+        <label>Date</label>
+        <input id="date" type="date">
+
+        <div class="button-row">
+            <a href="dashboard.html" class="cancel-wide">Cancel</a>
+            <button class="save-wide" onclick="saveEntry()">Save Entry</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('close-btn');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    async function saveEntry() {
+        const food = document.getElementById("food").value;
+        const calories = Number(document.getElementById("calories").value);
+        const date = document.getElementById("date").value;
+
+        if (!food || !calories || !date) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const res = await fetch("http://localhost:5000/api/entries", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ food, calories, date })
+        });
+
+        if (res.ok) {
+            alert("Entry Added!");
+            window.location.href = "dashboard.html";
+        } else {
+            alert("Error adding entry.");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MyNutritionTracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Top header -->
+    <header>
+        <button class="menu-btn" id="menu-btn">Menu</button>
+        <h1>MyNutritionTracker</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <a href="index.html">Home</a>
+        <a href="registration.html">Registration</a>
+        <a href="login.html">Login</a>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+  
+
+    <!-- Main content -->
+    <main class="main-content">
+        <section class="hero">
+            <h2>Welcome to Your Health Journey</h2>
+            <section class="cards-container">
+
+              <div class="card">
+                  <h3>Nutrition Tracking</h3>
+                  <p>
+                      Track your calories accurately to stay on top of your nutrition goals. 
+                      Monitor macros such as protein, carbs, and fats to ensure balanced meals. 
+                      View detailed reports and graphs showing your progress over time. 
+                      Receive tips on portion control and healthier alternatives. 
+                      Stay motivated with personalized insights to make your health journey easier.
+                  </p>
+              </div>
+          
+              <div class="card">
+                  <h3>Meal Planning</h3>
+                  <p>
+                      Plan your meals ahead of time for a healthier lifestyle. 
+                      Get suggestions for breakfast, lunch, and dinner based on your goals. 
+                      Learn how to prep meals efficiently and store them safely. 
+                      Discover ways to combine taste, nutrition, and convenience. 
+                      Reduce stress during the week while maintaining consistency with your diet.
+                  </p>
+              </div>
+          
+              <div class="card">
+                  <h3>Fitness Integration</h3>
+                  <p>
+                      Sync your workouts with your nutrition plan to see full results. 
+                      Track calories burned and how your activity affects your nutritional needs. 
+                      Get suggestions for exercises tailored to your personal goals. 
+                      Stay on top of consistency with reminders and progress tracking. 
+                      Make fitness an integral, enjoyable part of your health routine.
+                  </p>
+              </div>
+          
+          </section>
+          
+        </section>
+
+        <div class="auth-buttons-fullwidth">
+          <a href="login.html" class="btn fullwidth login-btn">Login</a>
+          <a href="registration.html" class="btn fullwidth register-btn">Register New Account</a>
+      </div>
+      
+
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>

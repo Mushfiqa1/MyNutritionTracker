@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
+
+<!-- Header -->
+<header>
+    <button class="menu-btn" id="menu-btn">Menu</button>
+    <h1>Dashboard</h1>
+    <a class="logout-btn" href="login.html">Logout</a>
+</header>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">&times;</button>
+    <a href="index.html">Home</a>
+    <a href="registration.html">Registration</a>
+    <a href="login.html">Login</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="add-entry.html">Add Entry</a>
+</nav>
+
+<!-- MAIN WRAPPER for centered UI -->
+<div class="page-wrapper">
+
+    <div class="dashboard-box">
+
+        <div class="dash-header-row">
+            <h2>Your Entries</h2>
+            <a href="add-entry.html" class="add-btn">+ Add</a>
+        </div>
+
+        <table class="entry-table-fixed">
+            <thead>
+                <tr>
+                    <th>Food</th>
+                    <th>Cals</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="entries-body"></tbody>
+        </table>
+
+        <p id="total-calories" class="total-cal">Total Calories Today: 0</p>
+
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script>
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('close-btn');
+    const overlay = document.getElementById('overlay');
+
+    menuBtn.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    async function loadEntries() {
+        const res = await fetch("http://localhost:5000/api/entries");
+        const entries = await res.json();
+
+        let total = 0;
+        const body = document.getElementById("entries-body");
+        body.innerHTML = "";
+
+        entries.forEach(entry => {
+            total += entry.calories;
+
+            body.innerHTML += `
+                <tr>
+                    <td>
+                        <strong>${entry.food}</strong><br>
+                        <small>${entry.date}</small>
+                    </td>
+                    <td>${entry.calories}</td>
+                    <td class="actions">
+                        <button class="edit-btn" onclick="editEntry('${entry._id}')">✎</button>
+                        <button class="del-btn" onclick="deleteEntry('${entry._id}')">🗑</button>
+                    </td>
+                </tr>
+            `;
+        });
+
+        document.getElementById("total-calories").textContent =
+            "Total Calories Today: " + total;
+    }
+
+    loadEntries();
+
+    function editEntry(id) {
+        window.location.href = `edit-entry.html?id=${id}`;
+    }
+
+    async function deleteEntry(id) {
+        if (!confirm("Delete this entry?")) return;
+
+        await fetch(`http://localhost:5000/api/entries/${id}`, {
+            method: "DELETE"
+        });
+
+        loadEntries();
+    }
+</script>
+
+</body>
+</html>
