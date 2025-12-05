@@ -1,0 +1,99 @@
+/* Center the signup/login card */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Card style */
+.auth-card {
+  background: white;
+  width: 420px;
+  padding: 30px 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.auth-card h2 {
+  margin-bottom: 8px;
+  font-size: 26px;
+  font-weight: 600;
+  color: #222;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Form styling */
+.auth-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #2484ff;
+  box-shadow: 0 0 0 2px rgba(36,132,255,0.2);
+}
+
+/* Button */
+.primary-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #2484ff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+.primary-btn:hover {
+  background: #1b6ed8;
+}
+
+/* Switch to login */
+.switch-auth {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.switch-auth a {
+  color: #2484ff;
+  text-decoration: none;
+}
+
+.switch-auth a:hover {
+  text-decoration: underline;
+}

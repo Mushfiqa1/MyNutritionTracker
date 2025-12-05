@@ -1,0 +1,87 @@
+/* GLOBAL */
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #f2f5f9;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* NAVBAR */
+nav {
+  background: #1976d2;
+  padding: 16px 30px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+/* ENTRIES LIST */
+.entry-card {
+  padding: 18px;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BUTTONS */
+button {
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #c62828;
+}
+
+.btn-primary {
+  background: #1976d2;
+}
+
+.btn-primary:hover {
+  background: #0d47a1;
+}
+
+/* FORMS */
+form input {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* PROFILE CARD */
+.profile-card {
+  padding: 20px;
+  background: #eef3ff;
+  border-radius: 10px;
+}

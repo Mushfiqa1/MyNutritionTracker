@@ -1,0 +1,95 @@
+/* === PUBLIC LANDING PAGE === */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #f6f9fc;
+}
+
+/* NAVIGATION */
+.landing-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #2196f3;
+  color: white;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.join-btn {
+  background: #fff;
+  color: #2196f3 !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 10%;
+  gap: 50px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h2 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.primary-btn {
+  background: #2196f3;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  background: white;
+  color: #2196f3;
+  border: 2px solid #2196f3;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.hero-img {
+  width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
