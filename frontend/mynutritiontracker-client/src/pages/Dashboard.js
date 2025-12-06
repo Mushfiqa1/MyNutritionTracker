@@ -26,6 +26,9 @@ export default function Dashboard() {
             Track calories, meals, and daily progress with ease.
             Build healthier habits — one entry at a time.
           </p>
+          <p style={{ marginTop: "20px", color: "#333" }}>
+  This project was updated as part of the CI/CD demonstration.
+</p>
 
           <div className="hero-buttons">
             <Link to="/register" className="btn-primary">Create an Account</Link>
